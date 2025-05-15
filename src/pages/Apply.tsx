@@ -112,7 +112,7 @@ const Apply = () => {
       <section className="pt-24 pb-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6 py-8">
           <div className="max-w-2xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-bold mb-2">Apply to 30under30.ai</h1>
+            <h1 className="font-display text-3xl md:text-4xl mb-2">Apply to 30under30.ai</h1>
             <p className="text-lg text-gray-600 mb-8">
               Join us in San Francisco for 3 months to build, launch, and scale your product to 30K.
             </p>

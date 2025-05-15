@@ -22,7 +22,7 @@ const NotFound = () => {
       
       <div className="flex-grow flex items-center justify-center bg-white py-24">
         <div className="text-center px-4">
-          <h1 className="text-6xl md:text-8xl font-bold mb-4">404</h1>
+          <h1 className="font-display text-6xl md:text-8xl mb-4">404</h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8">
             This page doesn't exist or has been moved.
           </p>

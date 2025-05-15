@@ -25,7 +25,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold tracking-tight">
+        <Link to="/" className="font-display text-xl tracking-tight">
           30under30.ai
         </Link>
         
