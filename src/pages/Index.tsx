@@ -235,6 +235,7 @@ const Index = () => {
           <div className="mt-16 text-center">
             <Link 
               to="/apply" 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="bg-white text-black px-8 py-4 text-base font-medium hover:bg-gray-200 transition-colors inline-flex items-center"
             >
               Apply Now <ArrowRight className="ml-2 h-4 w-4" />
