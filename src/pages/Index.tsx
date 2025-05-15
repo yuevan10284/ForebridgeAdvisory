@@ -41,7 +41,7 @@ const Index = () => {
 
   const mainText = "Build. Launch. Scale";
   const subText = "— 30 Days to 30K.";
-  const typingSpeed = 100;
+  const typingSpeed = 50;
   const mainTextDelay = 0;
   const subTextDelay = mainText.length * typingSpeed + 500;
 
