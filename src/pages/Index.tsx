@@ -1,14 +1,54 @@
-
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Briefcase, Rocket, TrendingUp, Award, CalendarDays } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
+const useTypewriter = (text: string, speed: number = 100, delay: number = 0) => {
+  const [displayText, setDisplayText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [started, setStarted] = useState(false);
+  const [isComplete, setIsComplete] = useState(false);
+
+  useEffect(() => {
+    const startTimeout = setTimeout(() => {
+      setStarted(true);
+    }, delay);
+
+    return () => clearTimeout(startTimeout);
+  }, [delay]);
+
+  useEffect(() => {
+    if (started && currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, speed);
+
+      return () => clearTimeout(timeout);
+    } else if (currentIndex === text.length) {
+      setIsComplete(true);
+    }
+  }, [currentIndex, text, speed, started]);
+
+  return { displayText, isComplete };
+};
+
 const Index = () => {
   useEffect(() => {
     document.title = "30under30.ai - Build. Launch. Scale.";
   }, []);
+
+  const mainText = "Build. Launch. Scale";
+  const subText = "— 30 Days to 30K.";
+  const typingSpeed = 100;
+  const mainTextDelay = 0;
+  const subTextDelay = mainText.length * typingSpeed + 500;
+
+  const { displayText: typedMainText, isComplete: mainTextComplete } = useTypewriter(mainText, typingSpeed, mainTextDelay);
+  const { displayText: typedSubText, isComplete: subTextComplete } = useTypewriter(subText, typingSpeed, subTextDelay);
+
+  const isTypingComplete = mainTextComplete && subTextComplete;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -18,33 +58,35 @@ const Index = () => {
       <section className="min-h-screen flex items-center pt-20 bg-white">
         <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
           <div className="max-w-4xl mx-auto">
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl tracking-tight mb-6 animate-fade-in">
-              Build. Launch. Scale <br />
-              <span className="inline-block mt-2">— 30 Days to 30K.</span>
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl tracking-tight mb-6">
+              {typedMainText} <br />
+              <span className="inline-block mt-2">{typedSubText}</span>
             </h1>
-            <p className="text-xl md:text-2xl font-medium text-gray-700 max-w-3xl mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              Join the accelerator that takes you from zero to 30,000 users or $30,000 MRR in just one month.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
-              <Link 
-                to="/apply" 
-                className="bg-black text-white px-8 py-4 text-base font-medium hover:bg-gray-800 transition-colors inline-flex items-center"
-              >
-                Apply Now <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-              <a 
-                href="#what-we-do" 
-                className="border border-black px-8 py-4 text-base font-medium hover:bg-black hover:text-white transition-colors"
-              >
-                Learn More
-              </a>
+            <div className={`transition-opacity duration-1000 ${isTypingComplete ? 'opacity-100' : 'opacity-0'}`}>
+              <p className="text-xl md:text-2xl font-medium text-gray-700 max-w-3xl mb-8">
+                Join the accelerator that takes you from zero to 30,000 users or $30,000 MRR in just one month.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link 
+                  to="/apply" 
+                  className="bg-black text-white px-8 py-4 text-base font-medium hover:bg-gray-800 transition-colors inline-flex items-center"
+                >
+                  Apply Now <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <a 
+                  href="#what-we-do" 
+                  className="border border-black px-8 py-4 text-base font-medium hover:bg-black hover:text-white transition-colors"
+                >
+                  Learn More
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
       
       {/* What We Do Section */}
-      <section id="what-we-do" className="py-16 md:py-24 bg-gray-50">
+      <section id="what-we-do" className={`py-16 md:py-24 bg-gray-50 transition-opacity duration-1000 ${isTypingComplete ? 'opacity-100' : 'opacity-0'}`}>
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="font-display text-3xl md:text-4xl mb-16 text-center">What We Do</h2>
           
@@ -83,7 +125,7 @@ const Index = () => {
       </section>
       
       {/* Why 30under30.ai Section */}
-      <section id="why-us" className="py-16 md:py-24 bg-white">
+      <section id="why-us" className={`py-16 md:py-24 bg-white transition-opacity duration-1000 ${isTypingComplete ? 'opacity-100' : 'opacity-0'}`}>
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="font-display text-3xl md:text-4xl mb-16 text-center">Why 30under30.ai?</h2>
           
@@ -132,7 +174,7 @@ const Index = () => {
       </section>
       
       {/* The Process Section */}
-      <section id="process" className="py-16 md:py-24 bg-black text-white">
+      <section id="process" className={`py-16 md:py-24 bg-black text-white transition-opacity duration-1000 ${isTypingComplete ? 'opacity-100' : 'opacity-0'}`}>
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="font-display text-3xl md:text-4xl mb-16 text-center">The Process</h2>
           
