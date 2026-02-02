@@ -7,9 +7,9 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">30under30.ai</h3>
+            <h3 className="text-xl font-bold mb-4">ForeBridge</h3>
             <p className="text-gray-300 max-w-xs">
-              From zero to 30,000 users or $30,000 MRR in just one month.
+              Dallas-focused market-entry and establishment advisory for Bay Area founders.
             </p>
           </div>
 
@@ -39,7 +39,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a 
-                href="mailto:info@30under30.ai" 
+                href="mailto:hello@forebridge.co" 
                 className="text-white hover:text-gray-300 transition-colors"
                 aria-label="Email"
               >
@@ -51,22 +51,22 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Join Our Community</h4>
+            <h4 className="text-lg font-semibold mb-4">Start a Conversation</h4>
             <Link 
               to="/apply"
               className="inline-block border border-white px-6 py-2 text-sm font-medium hover:bg-white hover:text-black transition-colors"
             >
-              Join Now
+              Get In Touch
             </Link>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-400">
-            &copy; {new Date().getFullYear()} 30under30.ai. All rights reserved.
+            &copy; {new Date().getFullYear()} ForeBridge Advisory Services. All rights reserved.
           </p>
           <p className="text-sm text-gray-400 mt-2 md:mt-0">
-            Powered by POSH and 30under30.ai
+            San Francisco ↔ Dallas
           </p>
         </div>
       </div>

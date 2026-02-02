@@ -65,9 +65,8 @@ export default {
 				}
 			},
 			fontFamily: {
-				sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial'],
-				display: ['Prata', 'serif'],
-				prata: ['Prata', 'serif'],
+				sans: ['DM Sans', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial'],
+				display: ['Playfair Display', 'serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

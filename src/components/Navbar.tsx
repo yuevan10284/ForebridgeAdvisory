@@ -26,7 +26,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         <Link to="/" className="font-display text-xl tracking-tight">
-          30under30.ai
+          ForeBridge
         </Link>
         
         {/* Mobile Menu Button */}
@@ -44,8 +44,8 @@ const Navbar = () => {
         
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
-          <a href="#what-we-do" className="text-sm font-medium hover:opacity-70 transition-opacity">
-            What We Do
+          <a href="#services" className="text-sm font-medium hover:opacity-70 transition-opacity">
+            Services
           </a>
           <a href="#why-us" className="text-sm font-medium hover:opacity-70 transition-opacity">
             Why Us
@@ -53,11 +53,14 @@ const Navbar = () => {
           <a href="#process" className="text-sm font-medium hover:opacity-70 transition-opacity">
             Process
           </a>
+          <a href="#offerings" className="text-sm font-medium hover:opacity-70 transition-opacity">
+            Offerings
+          </a>
           <Link 
             to="/apply" 
             className="bg-black text-white px-6 py-2 text-sm font-medium hover:bg-gray-800 transition-colors"
           >
-            Apply Now
+            Get In Touch
           </Link>
         </div>
       </div>
@@ -65,16 +68,16 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div 
         className={`absolute top-full left-0 w-full bg-white md:hidden transition-all duration-300 overflow-hidden ${
-          menuOpen ? 'max-h-60 border-b border-gray-200' : 'max-h-0'
+          menuOpen ? 'max-h-80 border-b border-gray-200' : 'max-h-0'
         }`}
       >
         <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
           <a 
-            href="#what-we-do" 
+            href="#services" 
             className="text-sm font-medium py-2"
             onClick={() => setMenuOpen(false)}
           >
-            What We Do
+            Services
           </a>
           <a 
             href="#why-us" 
@@ -90,12 +93,19 @@ const Navbar = () => {
           >
             Process
           </a>
+          <a 
+            href="#offerings" 
+            className="text-sm font-medium py-2"
+            onClick={() => setMenuOpen(false)}
+          >
+            Offerings
+          </a>
           <Link 
             to="/apply" 
             className="bg-black text-white px-6 py-2 text-center text-sm font-medium hover:bg-gray-800 transition-colors"
             onClick={() => setMenuOpen(false)}
           >
-            Apply Now
+            Get In Touch
           </Link>
         </div>
       </div>
