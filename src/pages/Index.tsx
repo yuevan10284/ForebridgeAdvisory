@@ -54,14 +54,19 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="min-h-screen flex items-center pt-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl tracking-tight mb-6">
-              {typedMainText} <br />
-              <span className="inline-block mt-2">{typedSubText}</span>
-            </h1>
+      <main>
+        {/* Hero Section */}
+        <section className="min-h-screen flex items-center pt-20 bg-white" aria-label="Hero">
+          <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+            <div className="max-w-4xl mx-auto">
+              {/* SEO-friendly h1 - visually hidden but crawlable */}
+              <h1 className="sr-only">
+                ForeBridge Advisory Services - San Francisco to Dallas Startup Relocation and Network Access for Bay Area Founders
+              </h1>
+              <p className="font-display text-4xl md:text-6xl lg:text-7xl tracking-tight mb-6" aria-live="polite" role="heading" aria-level={2}>
+                {typedMainText} <br />
+                <span className="inline-block mt-2">{typedSubText}</span>
+              </p>
             <div className={`transition-opacity duration-1000 ${isTypingComplete ? 'opacity-100' : 'opacity-0'}`}>
               <p className="text-xl md:text-2xl font-medium text-gray-700 max-w-3xl mb-4">
                 We bring the fastest-growing companies to the fastest-growing metros.
@@ -317,6 +322,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+      </main>
       
       <Footer />
     </div>

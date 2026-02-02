@@ -54,7 +54,12 @@ const Apply = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "Get In Touch — ForeBridge";
+    document.title = "Contact ForeBridge | Bay Area to Dallas Relocation Advisory";
+    // Update meta description for this page
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Start a conversation with ForeBridge Advisory. We help Bay Area founders relocate to Dallas with strategic positioning, network introductions, and relocation support.');
+    }
   }, []);
 
   const handleChange = (
